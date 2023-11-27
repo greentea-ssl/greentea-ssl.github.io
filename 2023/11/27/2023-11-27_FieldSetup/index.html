@@ -7,29 +7,33 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>フィールドセットアップの紹介 | GreenTea</title>
+  <title>新規参入の方必見 練習用フィールドを作ろう | GreenTea</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta name="description" content="USBカメラで60fps出たよ!GreenTeaでは、↓のようなUSB接続のWebカメラ(Logicool c922n)をロボットの動作確認に使っています。Amazonで7800円とかで買いました。  このカメラはMJPEGフォーマットで720pの解像度であれば、60fpsで撮影できます。しかし、これまでのSSL-visionではYUY2フォーマットしか対応しておらず、30fpsしか出せませんでし">
+  <meta name="description" content="前に行ったフィールドセットアップの紹介の記事では，主にカメラについてまとめました．今回はフィールドを作るうえで必要なものを包括的にまとめて行きます． この記事は，ssl-zemi 11月(2023/11/25)に発表した内容を編集した物です． 場所練習を行うには広いスペースが必要です．我々は主に，公民館などの貸会議室を活用しています．我々が会議室を借りる時に目安にしているのは次の通りです．  60">
 <meta name="keywords" content="PR,AI,SSL-Vision">
 <meta property="og:type" content="article">
-<meta property="og:title" content="フィールドセットアップの紹介">
-<meta property="og:url" content="https://greentea-ssl.com/2022/03/19/2022-03-19-Field-Setting/index.html">
+<meta property="og:title" content="新規参入の方必見 練習用フィールドを作ろう">
+<meta property="og:url" content="https://greentea-ssl.com/2023/11/27/2023-11-27_FieldSetup/index.html">
 <meta property="og:site_name" content="GreenTea">
-<meta property="og:description" content="USBカメラで60fps出たよ!GreenTeaでは、↓のようなUSB接続のWebカメラ(Logicool c922n)をロボットの動作確認に使っています。Amazonで7800円とかで買いました。  このカメラはMJPEGフォーマットで720pの解像度であれば、60fpsで撮影できます。しかし、これまでのSSL-visionではYUY2フォーマットしか対応しておらず、30fpsしか出せませんでし">
+<meta property="og:description" content="前に行ったフィールドセットアップの紹介の記事では，主にカメラについてまとめました．今回はフィールドを作るうえで必要なものを包括的にまとめて行きます． この記事は，ssl-zemi 11月(2023/11/25)に発表した内容を編集した物です． 場所練習を行うには広いスペースが必要です．我々は主に，公民館などの貸会議室を活用しています．我々が会議室を借りる時に目安にしているのは次の通りです．  60">
 <meta property="og:locale" content="ja">
-<meta property="og:image" content="https://greentea-ssl.com/pic/post/field-setting-camera-c922n.jpg">
-<meta property="og:image" content="https://greentea-ssl.com/pic/post/field-setting-60fps.png">
-<meta property="og:image" content="https://gh-card.dev/repos/RoboCup-SSL/ssl-vision.svg">
-<meta property="og:image" content="https://greentea-ssl.com/pic/post/field-setting-camera-install.JPG">
-<meta property="og:image" content="https://greentea-ssl.com/pic/post/field-setting.jpg">
-<meta property="og:updated_time" content="2023-05-09T04:53:35.286Z">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/kaigishitsu.jpg">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/mft2022.jpg">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/mft2023.jpg">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/josetsu.jpg">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/ali.png">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/camera_case.png">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/gakaku.png">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/stand.png">
+<meta property="og:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/minpc.jpg">
+<meta property="og:updated_time" content="2023-11-27T13:00:58.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="フィールドセットアップの紹介">
-<meta name="twitter:description" content="USBカメラで60fps出たよ!GreenTeaでは、↓のようなUSB接続のWebカメラ(Logicool c922n)をロボットの動作確認に使っています。Amazonで7800円とかで買いました。  このカメラはMJPEGフォーマットで720pの解像度であれば、60fpsで撮影できます。しかし、これまでのSSL-visionではYUY2フォーマットしか対応しておらず、30fpsしか出せませんでし">
-<meta name="twitter:image" content="https://greentea-ssl.com/pic/post/field-setting-camera-c922n.jpg">
+<meta name="twitter:title" content="新規参入の方必見 練習用フィールドを作ろう">
+<meta name="twitter:description" content="前に行ったフィールドセットアップの紹介の記事では，主にカメラについてまとめました．今回はフィールドを作るうえで必要なものを包括的にまとめて行きます． この記事は，ssl-zemi 11月(2023/11/25)に発表した内容を編集した物です． 場所練習を行うには広いスペースが必要です．我々は主に，公民館などの貸会議室を活用しています．我々が会議室を借りる時に目安にしているのは次の通りです．  60">
+<meta name="twitter:image" content="https://greentea-ssl.com/pic/post/20231127_FieldSetup/kaigishitsu.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -129,13 +133,13 @@
   <section id="main">
     
     <h2 itemprop="name">
-      <a class="article-title" href="/2022/03/19/2022-03-19-Field-Setting/">フィールドセットアップの紹介</a>
+      <a class="article-title" href="/2023/11/27/2023-11-27_FieldSetup/">新規参入の方必見 練習用フィールドを作ろう</a>
     </h2>
 
 
     <div class="row">
 <div class="col-md-9 col-sm-9 blog-posts">
-<article id="post-2022-03-19-Field-Setting" class="article article-type-post blog-item" itemscope itemprop="blogPost">
+<article id="post-2023-11-27_FieldSetup" class="article article-type-post blog-item" itemscope itemprop="blogPost">
   <div class="article-meta">
   </div>
   <div class="article-inner">
@@ -143,9 +147,9 @@
     
     <header class="article-header">
       <ul class="blog-info">
-	<li><i class="fa fa-user"></i> Anonymous</li>
+	<li><i class="fa fa-user"></i> Croissant</li>
 	<li><i class="fa fa-calendar"></i>
-	  <time datetime="2022-03-18T15:00:00.000Z" itemprop="datePublished">2022/03/19</time>
+	  <time datetime="2023-11-27T12:56:36.000Z" itemprop="datePublished">2023/11/27</time>
 
 	</li>
 	<li class="hidden-xs"><i class="fa fa-tags"></i> 
@@ -162,48 +166,90 @@
 	</li>
       </ul>
       
-  <div class="article-category">
-    
-    Category: 
-    
-    <a class="article-category-link" href="/categories/PR/">PR</a>
-  </div>
-  <br>
-
 
     </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="USBカメラで60fps出たよ"><a href="#USBカメラで60fps出たよ" class="headerlink" title="USBカメラで60fps出たよ!"></a>USBカメラで60fps出たよ!</h2><p>GreenTeaでは、↓のようなUSB接続のWebカメラ(Logicool c922n)をロボットの動作確認に使っています。Amazonで7800円とかで買いました。</p>
-<p><img src="/pic/post/field-setting-camera-c922n.jpg" alt></p>
-<p>このカメラはMJPEGフォーマットで720pの解像度であれば、60fpsで撮影できます。<br>しかし、これまでのSSL-visionではYUY2フォーマットしか対応しておらず、<br>30fpsしか出せませんでした。<br>それが昨年、SSL-visionが晴れてMJPEGフォーマットに対応したわけですが、visionのGUIで設定したフレームレートが動作に反映されていませんでした。<br>そこで今回、該当箇所の修正を行った結果、ようやくlogicool c922nをつかって、<br>720p、60fpsを実現できました。わーい。</p>
-<p><img src="/pic/post/field-setting-60fps.png" alt></p>
-<p>修正のpull requestは公式にacceptされました。わーい。(<a href="https://github.com/RoboCup-SSL/ssl-vision/pull/189" target="_blank" rel="noopener">https://github.com/RoboCup-SSL/ssl-vision/pull/189</a>)<br>masterのURLはこちら<br><a href="https://github.com/RoboCup-SSL/ssl-vision" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/RoboCup-SSL/ssl-vision.svg" alt="RoboCup-SSL/ssl-vision - GitHub"></a></p>
-<h2 id="カメラ設置方法"><a href="#カメラ設置方法" class="headerlink" title="カメラ設置方法"></a>カメラ設置方法</h2><h3 id="常設カメラ（自宅設置）"><a href="#常設カメラ（自宅設置）" class="headerlink" title="常設カメラ（自宅設置）"></a>常設カメラ（自宅設置）</h3><p>自宅の天井にカメラを設置した一例です。<br>マジックテープを使ってベニヤ板を天井に固定しています。<br>マジックテープをタッカーで固定することで、跡が残りにくい(はず)です。<br>ベニヤ板にカメラアームをねじ止めしています。</p>
-<p><img src="/pic/post/field-setting-camera-install.JPG" alt></p>
-<h3 id="練習会でのカメラ設置"><a href="#練習会でのカメラ設置" class="headerlink" title="練習会でのカメラ設置"></a>練習会でのカメラ設置</h3><p>練習会などで場所を借りてフィールドを設置する場合には、<br>背景スタンドを使ってカメラを設置しています。</p>
-<p>背景スタンドはamazonで5000円くらいで購入したもので、畳んでバッグに入れて持ち運べるので便利です。幅は3m、高さは2.8mまで伸ばせるものを使っています。</p>
-<p><img src="/pic/post/field-setting.jpg" alt></p>
-<p>この時はカメラ2台使うため、スタンドも2組つかいました。</p>
-<!-- 誤情報でした
-
-### USB延長ケーブルについて
-
-カメラを高所に設置する場合、USBケーブルを延長する必要性が出てきます。
-しかしケーブルの種類によっては、カメラがうまく動作しない場合があるので注意が必要です。
-
-- 動いたやつ
-    - https://www.monotaro.com/p/3273/9716/
-- 動かなかったやつ
-    - https://www.amazon.co.jp/gp/product/B00NH11PEY/
-
--->
-
-<h2 id="カーペットについて"><a href="#カーペットについて" class="headerlink" title="カーペットについて"></a>カーペットについて</h2><p>カーペットはこちらから購入しました。</p>
+        <p>前に行った<a href="https://greentea-ssl.com/2022/03/19/2022-03-19-Field-Setting/">フィールドセットアップの紹介</a>の記事では，主にカメラについてまとめました．<br>今回はフィールドを作るうえで必要なものを包括的にまとめて行きます．</p>
+<p>この記事は，ssl-zemi 11月(2023/11/25)に発表した内容を編集した物です．</p>
+<h2 id="場所"><a href="#場所" class="headerlink" title="場所"></a>場所</h2><p>練習を行うには広いスペースが必要です．我々は主に，公民館などの貸会議室を活用しています．我々が会議室を借りる時に目安にしているのは次の通りです．</p>
 <ul>
-<li><a href="https://www.diy-shop.jp/item.php?cc=0000061751" target="_blank" rel="noopener">https://www.diy-shop.jp/item.php?cc=0000061751</a></li>
+<li>60-100 $\rm{m}^2$ 程度 (半分フィールド，半分作業エリアとして利用)</li>
+<li>天井高 2.5 m 以上</li>
+<li>利用料金 ￥4000-6000/Day</li>
+<li>連続利用日数 3-4日 (実活動時間2日程度，初日は搬入とセットアップ，最終日午後は搬出)</li>
+<li>夜間に荷物を置いたままにできるか</li>
+<li>Free WiFiがあるとなおよい</li>
 </ul>
+<p><img src="/pic/post/20231127_FieldSetup/kaigishitsu.jpg" alt="貸会議室の風景"></p>
+<h2 id="カーペット"><a href="#カーペット" class="headerlink" title="カーペット"></a>カーペット</h2><p>パンチカーペットを<a href="https://www.diy-shop.jp/item.php?cc=0000061751" target="_blank" rel="noopener">ここ</a>から購入しています．1.8 m巾もありますが，可搬性を考えると91 cm巾が便利です．MFTなど会場によっては防炎ラベルが必要になりますので，購入時に合わせて準備することをお勧めします．<br>また，下にべニアを敷く場合や，常設するときはカーペット用両面テープが有効です．</p>
+<h2 id="白線"><a href="#白線" class="headerlink" title="白線"></a>白線</h2><p>白色のマスキングテープ一択です．ビニールテープは縮んでしまい，カーペットごと歪んでしまいます．チョークなどの筆記具を使う場合色が残ってしまうので，場所ごとに組み替えてカーペットを利用する場合に適しません．</p>
+<h2 id="壁"><a href="#壁" class="headerlink" title="壁"></a>壁</h2><p>広いフィールドに壁を用意するのは非常に大変です．我々は常設の場合や，ボールが転がって困る場合に製作しています．木材の色がVisonシステムに影響を与える場合があるので，セットアップを楽にするという意味で，黒く塗装することをお勧めします．</p>
+<h3 id="フィールド-MFT2022"><a href="#フィールド-MFT2022" class="headerlink" title="フィールド MFT2022"></a>フィールド MFT2022</h3><p>展示会場ではボールが転がっていくのを防ぐために，高めの壁を用意しました．角は直角クランプで固定することで，工具なしでの組み立てが可能です．木材が大きいため運ぶのは少し大変です．</p>
+<p><img src="/pic/post/20231127_FieldSetup/mft2022.jpg" alt="MFT2022フィールド"></p>
+<h3 id="フィールド-MFT2023"><a href="#フィールド-MFT2023" class="headerlink" title="フィールド MFT2023"></a>フィールド MFT2023</h3><p>MFT2022では可搬性に課題があったことや，より大きなフィールドをカバーする必要があったので，壁を30×40の角材で製作しました．木材同士は金具で固定し，カーペットに養生テープで張り付けてあります．このフィールドは可搬性は高く非常に便利でしたが，壁が少し低く，ボールが飛び出すことが多くありました．壁の高さは最低80 mm程あったほうが良いと思われます．</p>
+<p><img src="/pic/post/20231127_FieldSetup/mft2023.jpg" alt="MFT2023フィールド"></p>
+<h3 id="メンバー宅"><a href="#メンバー宅" class="headerlink" title="メンバー宅"></a>メンバー宅</h3><p>1×4材を黒く塗装して使用しています．常設しているので，可搬性などは考えられていません．塗装は結構手間です．</p>
+<p><img src="/pic/post/20231127_FieldSetup/josetsu.jpg" alt="umagoya"></p>
+<h2 id="SSL-Vison用カメラ"><a href="#SSL-Vison用カメラ" class="headerlink" title="SSL-Vison用カメラ"></a>SSL-Vison用カメラ</h2><p>AliExpressで購入した<a href="https://ja.aliexpress.com/item/4001241776541.html" target="_blank" rel="noopener">USBカメラ</a>を使用しています．比較的安価に必要な性能を得ることができます．性能はざっと以下の通りです．</p>
+<p><img src="/pic/post/20231127_FieldSetup/ali.png" alt="ありえくのスクショ"></p>
+<ul>
+<li>イメージセンサ IMX290</li>
+<li>USB 3.0対応</li>
+<li>YUYV, MJPEGに対応</li>
+<li>1080p 60fpsで出力可能</li>
+<li>焦点距離2.8 mm</li>
+</ul>
+<p>広角のレンズがついており，低価格であるという2点に着目して購入しました．基板が向き出しの製品ですので，3Dプリンタ製のケースを作って使用しています．</p>
+<p><img src="/pic/post/20231127_FieldSetup/camera_case.png" alt="カメラケース"></p>
+<p><img src="/pic/post/20231127_FieldSetup/gakaku.png" alt="カメラの画角"></p>
+<h2 id="カメラの固定"><a href="#カメラの固定" class="headerlink" title="カメラの固定"></a>カメラの固定</h2><p><a href="https://www.amazon.co.jp/dp/B06Y2JGNQ1/" target="_blank" rel="noopener">背景用スタンド</a>にカメラマウントを取り付けて使用しています．最大高さ2.8 m 幅3 mまで広げることでき，1 m程度の大きさに分割可能して輸送ができます．袋もついてくるので非常に便利です．足元が三脚になっているため，狭いとことでは少し使い勝手が悪いです．金額に余裕があり，工具ありの組み立てを考えるのであれば，Misumiのアルミフレームなども視野に入るかもしれないです．</p>
+<p><img src="/pic/post/20231127_FieldSetup/stand.png" alt="背景スタンド展開"></p>
+<h2 id="SSL-Vison用PC"><a href="#SSL-Vison用PC" class="headerlink" title="SSL-Vison用PC"></a>SSL-Vison用PC</h2><p>小型のデスクトップをYahooオークションで購入しました．1台￥6000程度で4台入手しました．</p>
+<ul>
+<li>CPU:Intel Core i3-6100T</li>
+<li>メモリ: 4 G</li>
+<li>SSD: 256 GB</li>
+</ul>
+<p><img src="/pic/post/20231127_FieldSetup/minpc.jpg" alt="miniPC"></p>
+<p>性能としては，YUYV:1080pの設定でギリギリ動く程度です．普段はカメラを複数用意したり，フィールドが小さいのでMJPEG:720pで運用することが多いです．<br>複数のカメラ接続時のためのUSBケーブルの延長やUSBハブによって動作が不安定にならないように，1カメラにつきPC1台を使用する構成にしています．</p>
+<h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>新しくフィールドを作るのに必要な費用をまとめると次の通りです．</p>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>費用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>カーペット ( 30 m )</td>
+<td>￥20,000-</td>
+</tr>
+<tr>
+<td>壁 ( 3×4 m程度 )</td>
+<td>￥5,000-</td>
+</tr>
+<tr>
+<td>SSL-Vison用カメラ</td>
+<td>￥10,000-</td>
+</tr>
+<tr>
+<td>カメラ固定スタンド（背景スタンド）</td>
+<td>￥5,000-</td>
+</tr>
+<tr>
+<td>SSL-Vison用PC</td>
+<td>￥6,000-</td>
+</tr>
+<tr>
+<td><strong>合計</strong></td>
+<td><strong>￥46,000-</strong></td>
+</tr>
+</tbody></table>
+<p>延長ケーブルなどの細かな出費を合わせても，<strong>5万円程度</strong>でフィールドを製作することができます．<br>決して安くはありませんが，現実的な値段で動作確認ができます．</p>
+<p>加えて，輸送費￥10,000(場所にもよる)と会場費￥20,000程度で1回の練習会などが開催できます．</p>
+<p>最近はもう少し大きなサイズ（div. B程度）で動かしたいと思うこともありますが，場所の確保が難しくなかなか実現できておりません． </p>
 
       
     </div>
@@ -212,19 +258,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/05/06/2023-05-06-JO2023-Stream/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          JO2023 SSLの公式配信を担当しました
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/12/25/2020-12-25-Christmas-6hours/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/10/22/2023-10-22_mft2023/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">製の6時間2020</div>
+      <div class="article-nav-title">Maker Faire Tokyo 2023に出展しました</div>
     </a>
   
 </nav>
