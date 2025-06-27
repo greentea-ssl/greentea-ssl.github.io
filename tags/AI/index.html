@@ -89,7 +89,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({"conversion":{"display":true},"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]}});
+      MathJax.Hub.Config({"conversion":{"display":true,"format":"TeX"},"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]],"packages":["base","ams","newcommand","noundefined","require","autoload","configmacros"]}});
     </script>
   
   <!-- MathJax END -->
@@ -174,90 +174,6 @@
 
   <section class="archives-wrap">
     <div class="archives">
-      
-	<div class="row">
-  <div class="col-md-4 col-sm-4">
-    
-      <img src="/pic/post/2025-06-21/image.png" class="img-responsive">
-    
-  </div>
-  
-    <div class="col-md-8 col-sm-8">
-  
-    
-    <h2 itemprop="name">
-      <a class="archive-article-title" href="/2025/06/21/2025-06-21/">ブログ書いてみた</a>
-    </h2>
-
-
-    <ul class="blog-info">
-      <li>
-      	<i class="fa fa-calendar"></i> 
-        <time datetime="2025-06-20T17:00:00.000Z" itemprop="datePublished">2025/06/21</time>
-
-      </li>
-      <li>
-	<i class="fa fa-tags"></i>
-	
-  
-    <a href="/tags/AI/" title="AI">AI</a>
-  
-
-
-      </li>
-    </ul>
-    <div class="blog-item">
-      
-	<h1 id="ブログ書いてみた"><a href="#ブログ書いてみた" class="headerlink" title="ブログ書いてみた"></a>ブログ書いてみた</h1><h2 id="初めに"><a href="#初めに" class="headerlink" title="初めに"></a>初めに</h2><p>ブログ書いたほうがよくねムーブメントが深夜に発生しました．何を書くか悩んだので，最近開発中のロボットに組み込む画像処理システムのリポジトリにcodexをつないで，ブログ書いてとお願いしてみました！</p>
-<p>———以下　生成AIの成果物———</p>
-<h1 id="BallDetectionESP-開発ヒストリーまとめ"><a href="#BallDetectionESP-開発ヒストリーまとめ" class="headerlink" title="BallDetectionESP 開発ヒストリーまとめ"></a>BallDetectionESP 開発ヒストリーまとめ</h1><h2 id="第1章-History-─-プロジェクトの歩み"><a href="#第1章-History-─-プロジェクトの歩み" class="headerlink" title="第1章 History ─ プロジェクトの歩み"></a>第1章 History ─ プロジェクトの歩み</h2><h3 id="1-1-プロジェクト発足の経緯"><a href="#1-1-プロジェクト発足の経緯" class="headerlink" title="1.1 プロジェクト発足の経緯"></a>1.1 プロジェクト発足の経緯</h3><p>2025年5月、BallDetectionESP は小型ロボット向けのボール検出システムを目指してスタートしました。当初は PC 上でのリアルタイム映像配信から始まり、RTSP を利用した動画ストリーミングの試行錯誤が続きました。映像が途切れたり、フレームが欠落したりとトラブルの連続でしたが、YUV420 形式の導入と再エンコード処理の調整によって、徐々に安定した配信が可能となりました。</p>
-<h3 id="1-2-コードの整理とリファクタリング"><a href="#1-2-コードの整理とリファクタリング" class="headerlink" title="1.2 コードの整理とリファクタリング"></a>1.2 コードの整理とリファクタリング</h3><p>続いて、プログラムの可読性と保守性を高めるために大規模なリファクタリングを実施しました。include&#x2F;image_processing 以下に画像処理のロジックを集約し、ハードウェアに依存する部分は platform 以下に分離。スマートポインタの導入によりメモリ管理の安全性が向上し、バッファの扱いもテンプレート化して効率化を図りました。</p>
-<h3 id="1-3-CI-とテストの整備"><a href="#1-3-CI-とテストの整備" class="headerlink" title="1.3 CI とテストの整備"></a>1.3 CI とテストの整備</h3><p>品質を保ちながら開発速度を上げるため、Google Test による単体テストと Docker コンテナを用いた CI パイプラインを整備しました。プルリクエストごとに自動でビルドとテストが走り、過去バージョンとのパフォーマンス比較を行う Google Benchmark も組み込まれています。これにより、性能退化をすぐに検知でき、安心して機能追加を進められる環境が整いました。</p>
-<h3 id="1-4-ESP32-への移植とクロスプラットフォーム化"><a href="#1-4-ESP32-への移植とクロスプラットフォーム化" class="headerlink" title="1.4 ESP32 への移植とクロスプラットフォーム化"></a>1.4 ESP32 への移植とクロスプラットフォーム化</h3><p>ホスト環境で鍛えたアルゴリズムを安価なマイコン上で動かすべく、ESP32 への移植を開始しました。docs&#x2F;BallDetectionEsp.md に記載されているように、CORE1 が画像取得と処理、CORE0 が I&#x2F;O や Wi-Fi など周辺機能を担当します。クロスコンパイル環境と devcontainer の導入により、同じコードベースを PC と ESP32 でビルドできるようになり、移植作業の手間が大幅に減りました。</p>
-<h3 id="1-5-現在地と今後の展望"><a href="#1-5-現在地と今後の展望" class="headerlink" title="1.5 現在地と今後の展望"></a>1.5 現在地と今後の展望</h3><p>最新コミットでは RTSP 配信設定の見直しや Wi-Fi 経由の診断機能が強化され、実機環境での利便性が向上しています。今後はバッファ管理のさらなる最適化や、低消費電力を狙った電源制御の改善にも着手する予定です。</p>
-<h2 id="第2章-Development-─-技術的ポイントとコスト削減への取り組み"><a href="#第2章-Development-─-技術的ポイントとコスト削減への取り組み" class="headerlink" title="第2章 Development ─ 技術的ポイントとコスト削減への取り組み"></a>第2章 Development ─ 技術的ポイントとコスト削減への取り組み</h2><h3 id="2-1-画像処理アルゴリズムの進化"><a href="#2-1-画像処理アルゴリズムの進化" class="headerlink" title="2.1 画像処理アルゴリズムの進化"></a>2.1 画像処理アルゴリズムの進化</h3><p>docs&#x2F;image_processing_classes.md では VUDifferenceConverter や EdgeDetector、BallDetector の役割が詳しく説明されています。色差分を利用した高精度な候補抽出と、軽量なエッジ検出を組み合わせることで、ESP32 のリソースでも高速にボールを検出できます。これらのアルゴリズムはホスト環境で継続的にベンチマークを行い、最適化を繰り返しながら実機へ反映されました。</p>
-<h3 id="2-2-クロスプラットフォーム開発のメリット"><a href="#2-2-クロスプラットフォーム開発のメリット" class="headerlink" title="2.2 クロスプラットフォーム開発のメリット"></a>2.2 クロスプラットフォーム開発のメリット</h3><p>開発初期は PC 上でのデバッグ中心でしたが、devcontainer を導入してからはホスト向けと ESP32 向けのビルドスクリプトを共通化。環境構築の手間がほぼゼロになり、各メンバーが即座に作業を始められるようになりました。テストコードも同じくクロスプラットフォームで動作するため、ホスト環境の CI で十分に検証した上で、ESP32 実機での動作確認にスムーズに移行できます。</p>
-<h3 id="2-3-ベンチマークと性能検証"><a href="#2-3-ベンチマークと性能検証" class="headerlink" title="2.3 ベンチマークと性能検証"></a>2.3 ベンチマークと性能検証</h3><p>パフォーマンス劣化を防ぐため、Google Benchmark を利用して主要アルゴリズムの実行時間を測定しています。CI では過去の測定結果と比較し、処理速度が落ちていないかを自動でチェック。結果はプルリクエストにコメントとして投稿されるため、性能の変化を誰もが把握しやすい仕組みとなっています。これにより、負荷の高い処理を追加する際も数値で影響を把握でき、安定した改善サイクルを維持できています。</p>
-<h3 id="2-4-マイコン化によるコスト削減"><a href="#2-4-マイコン化によるコスト削減" class="headerlink" title="2.4 マイコン化によるコスト削減"></a>2.4 マイコン化によるコスト削減</h3><p>もともと PC を中心としたシステムで開発していたころは、ハードウェアコストが大きな課題でした。ESP32 への移行によって、デュアルコアを活かした効率的な処理と、低電力・低コストでの運用が可能になりました。UART 出力と Wi-Fi 経由の診断・パラメータ変更機能がそろったことで、専用サーバを用意せずともボール検出が完結するようになり、ハードウェア費用を大幅に抑えられます。</p>
-<h3 id="2-5-ドキュメント整備とチーム開発"><a href="#2-5-ドキュメント整備とチーム開発" class="headerlink" title="2.5 ドキュメント整備とチーム開発"></a>2.5 ドキュメント整備とチーム開発</h3><p>docs&#x2F; にはアーキテクチャ図やクラス解説のほか、ホスト環境向けのセットアップ手順 (docs&#x2F;host.md) も整備されています。これらのドキュメントを充実させることで、新規メンバーもすぐに開発に参加できるようになり、チーム全体のスピードが加速しました。CI の結果やベンチマーク値をドキュメントにまとめる試みも進んでおり、知見の共有と品質向上の好循環が生まれています。</p>
-<h3 id="2-6-今後の課題と展望"><a href="#2-6-今後の課題と展望" class="headerlink" title="2.6 今後の課題と展望"></a>2.6 今後の課題と展望</h3><p>現在は UART と Wi-Fi の両経路で情報を取得できますが、さらなる小型化や低電力化、さらには高速化を目指したアルゴリズム改良が今後のテーマです。また、量産を想定したハードウェア設計や、外部センサとの連携も検討しています。CI 環境を活用したテスト自動化・ベンチマークの高度化により、開発効率をさらに高めつつ、より精度の高いボール検出システムへと進化させていく計画です。</p>
-<p>BallDetectionESP は、ホスト環境での迅速な開発と ESP32 実機での運用を両立させるクロスプラットフォーム体制を築き、CI・テスト・ベンチマークを通じて品質を確保してきました。マイコン化により大幅なコスト削減を実現しつつ、今後も性能向上と利便性を追求していく予定です。さらなる進化にご期待ください。</p>
-<p>———生成AIの成果物　ここまで———</p>
-<h1 id="正誤を見ていこう！"><a href="#正誤を見ていこう！" class="headerlink" title="正誤を見ていこう！"></a>正誤を見ていこう！</h1><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 1.1 プロジェクト発足の経緯</span></span><br></pre></td></tr></table></figure>
-<p>おおむねこのとおりですね！よくできました．</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 1.2 コードの整理とリファクタリング</span></span><br></pre></td></tr></table></figure>
-<p>うん．これは正しいですね！</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 1.3 CI とテストの整備</span></span><br></pre></td></tr></table></figure>
-<p>そうですね．これも正しい．testとbenchmarkをしっかりと作ることで，変更容易性が高まっています！<br>ちなみにこんなかんじにで出てきます．（開発中のスクショなので，一部ちゃんとうごいていないですね）<br><img src="/pic/post/2025-06-21/image.png" alt="alt text"></p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 1.4 ESP32 への移植とクロスプラットフォーム化</span></span><br></pre></td></tr></table></figure>
-<p>これも正しい．画像処理部分を切り出すことで，ロジック開発とその高速化をPCだけで開発できるのでかなりありがたいです．</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 2.4 マイコン化によるコスト削減</span></span><br></pre></td></tr></table></figure>
-<p>結構間違ってますね．</p>
-<p><code>Wi-Fi 経由の診断・パラメータ変更機能がそろったことで</code> これはまだ実装はしていないはず．．．設計書があるから出来上がったと勘違いしたのでしょうか？</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 1.5 現在地と今後の展望</span></span><br></pre></td></tr></table></figure>
-<p>全然違うことを言っています．．．そんなコミットはないですね．粛々と<code>Wi-Fi 経由の診断・パラメータ変更機能</code>この機能を実装する計画のはず．．issueやprojectは見に行かないのか</p>
-<p>ここまで1章はそこそこダメでしたが，2章はどうでしょうか？</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 2.1 画像処理アルゴリズムの進化</span></span><br></pre></td></tr></table></figure>
-<p>別にそんなに進化してないですね．ほとんどの実装はTigers TDPのパクリです．</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 2.2 クロスプラットフォーム開発のメリット</span></span><br></pre></td></tr></table></figure>
-<p>おおむねそうですね．buildスクリプトの共通化したっけな．．．</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 2.4 マイコン化によるコスト削減</span></span><br></pre></td></tr></table></figure>
-<p>そうですね，raspiをクビにできるのはスペースにもお財布にも優しい．</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 2.5 ドキュメント整備とチーム開発</span></span><br></pre></td></tr></table></figure>
-<p>趣味開発では珍しく充実した？資料が準備されているのはそうですね．今までのメインの戦略ソフトウェアが要素ごとに担当者が異なり，相互に理解するのがしんどい（実質無理）になってしまったことで，今シーズンは全体的な構造整理も踏まえてまっさらから開発を始めています．その対策としても，ドキュメントや補助資料の充実を図っています．しかし，現状このリポのデベロッパーは2名．．．</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 2.6 今後の課題と展望</span></span><br></pre></td></tr></table></figure>
-<p>やっぱり展望系は苦手ですね．．．このデバイスのハードはできるだけ手を抜きたいな</p>
-<h1 id="総評"><a href="#総評" class="headerlink" title="総評"></a>総評</h1><p>悪くはない．でも結構妄想多めですね．．．</p>
-
-      
-    </div>
-    <br>
-    <br>
-    <a href="https://greentea-ssl.com/2025/06/21/2025-06-21/" class="more">Read more <i class="icon-angle-right"></i></a>
-  </div>
-</div>
-<hr class="blog-post-sep">
-
       
 	<div class="row">
   <div class="col-md-4 col-sm-4">

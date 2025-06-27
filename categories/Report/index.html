@@ -89,7 +89,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({"conversion":{"display":true},"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]}});
+      MathJax.Hub.Config({"conversion":{"display":true,"format":"TeX"},"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]],"packages":["base","ams","newcommand","noundefined","require","autoload","configmacros"]}});
     </script>
   
   <!-- MathJax END -->
@@ -172,6 +172,118 @@
 
   <section class="archives-wrap">
     <div class="archives">
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+      <img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/loss.png" class="img-responsive">
+    
+  </div>
+  
+    <div class="col-md-8 col-sm-8">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/2025/06/28/2025-06-28-Kicker-v3.2-ChargeTest/">240126_キッカー基板v3.2試作品_充放電テスト</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2025-06-27T17:00:00.000Z" itemprop="datePublished">2025/06/28</time>
+
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/tags/Report/" title="Report">Report</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	<p>この記事は2024年1月26日にチーム内Wikiに書かれたレポートを転記したものです．  </p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>キッカー基板v3.2試作品の充放電動作を確認する。</p>
+<h2 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h2><p>充電動作について，シャント抵抗(R14,R15)を5mΩに設定した場合では12秒程度で200Vまで充電することを確認。<br>シャント抵抗を3mΩに設定した場合は300ミリ秒で130V程度に達し，充電が停止した。</p>
+<p>放電はストレート用，チップ用ともに正常に動作した。</p>
+<h2 id="充電テスト"><a href="#充電テスト" class="headerlink" title="充電テスト"></a>充電テスト</h2><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>充電回路（昇圧回路）の各部の波形を観測する。</p>
+<ol>
+<li>R14に5mΩシャント抵抗を実装，R15は未実装。充電停止電圧が200V程度になるようにR16, R17を調整。</li>
+<li>充電時の波形を観測。</li>
+<li>R14を3mΩに変更。</li>
+<li>充電時の波形を観測</li>
+</ol>
+<h4 id="プロービング"><a href="#プロービング" class="headerlink" title="プロービング"></a>プロービング</h4><ul>
+<li>CH1: シャント抵抗(R14,R15)端子間電圧</li>
+<li>CH2: MOSFET(Q1)ドレイン電圧</li>
+<li>CH3: トランス2次側電圧</li>
+<li>CH4: 電源電流</li>
+</ul>
+<p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/charge_point.png" alt="image.png"></p>
+<h3 id="実験結果"><a href="#実験結果" class="headerlink" title="実験結果"></a>実験結果</h3><h4 id="シャント抵抗5mΩ設定時"><a href="#シャント抵抗5mΩ設定時" class="headerlink" title="シャント抵抗5mΩ設定時"></a>シャント抵抗5mΩ設定時</h4><iframe width="560" height="315" src="https://www.youtube.com/embed/WbSrMDhoLkM?si=ba2Ax3dv8yTmigTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h4 id="シャント抵抗3mΩ設定時"><a href="#シャント抵抗3mΩ設定時" class="headerlink" title="シャント抵抗3mΩ設定時"></a>シャント抵抗3mΩ設定時</h4><p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/3m.png" alt="image.png"></p>
+<h2 id="放電テスト"><a href="#放電テスト" class="headerlink" title="放電テスト"></a>放電テスト</h2><h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><p>放電回路(IGBT)の各部の波形を観測する。</p>
+<ol>
+<li>R16, R17は十分に小さく設定し，R14に5mΩを実装，R15は未実装。</li>
+<li>キャパシタ電圧が100V, 150V, 200Vに達した時に手動で充電を停止する。</li>
+<li>マイコンからゲート信号をONにして，放電動作させる。</li>
+<li>十分時間が経過した後にゲート信号をOFFにする。</li>
+</ol>
+<h3 id="プロービング-1"><a href="#プロービング-1" class="headerlink" title="プロービング"></a>プロービング</h3><ul>
+<li>CH1: IGBTゲート電圧</li>
+<li>CH2: IGBTコレクタ電圧</li>
+<li>CH3: キャパシタ電圧</li>
+<li>CH4: コイル電流</li>
+</ul>
+<p>チップキック側回路。ストレート側も同様。<br><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/discharge_point.png" alt="image.png"></p>
+<h3 id="実験結果-1"><a href="#実験結果-1" class="headerlink" title="実験結果"></a>実験結果</h3><h4 id="ストレート側"><a href="#ストレート側" class="headerlink" title="ストレート側"></a>ストレート側</h4><h5 id="キャパシタ電圧-100V"><a href="#キャパシタ電圧-100V" class="headerlink" title="キャパシタ電圧:100V"></a>キャパシタ電圧:100V</h5><p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/%E5%B7%BB%E3%81%8D%E6%95%B0%E5%A4%9A%E3%82%81%E3%82%B3%E3%82%A4%E3%83%AB-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%83%88-100V.png" alt="巻き数多めコイル-ストレート-100V.png"></p>
+<h4 id="キャパシタ電圧-150V"><a href="#キャパシタ電圧-150V" class="headerlink" title="キャパシタ電圧:150V"></a>キャパシタ電圧:150V</h4><p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/%E5%B7%BB%E3%81%8D%E6%95%B0%E5%A4%9A%E3%82%81%E3%82%B3%E3%82%A4%E3%83%AB-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%83%88-150V.png" alt="巻き数多めコイル-ストレート-150V.png"></p>
+<h4 id="キャパシタ電圧-200V"><a href="#キャパシタ電圧-200V" class="headerlink" title="キャパシタ電圧:200V"></a>キャパシタ電圧:200V</h4><p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/%E5%B7%BB%E3%81%8D%E6%95%B0%E5%A4%9A%E3%82%81%E3%82%B3%E3%82%A4%E3%83%AB-%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%83%88-200V.png" alt="巻き数多めコイル-ストレート-200V.png"></p>
+<h4 id="チップ側"><a href="#チップ側" class="headerlink" title="チップ側"></a>チップ側</h4><h5 id="キャパシタ電圧-100V-1"><a href="#キャパシタ電圧-100V-1" class="headerlink" title="キャパシタ電圧:100V"></a>キャパシタ電圧:100V</h5><p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/%E5%B7%BB%E3%81%8D%E6%95%B0%E5%A4%9A%E3%82%81%E3%82%B3%E3%82%A4%E3%83%AB-%E3%83%81%E3%83%83%E3%83%97-100V.png" alt="巻き数多めコイル-チップ-100V.png"></p>
+<h5 id="キャパシタ電圧-150V-1"><a href="#キャパシタ電圧-150V-1" class="headerlink" title="キャパシタ電圧:150V"></a>キャパシタ電圧:150V</h5><p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/%E5%B7%BB%E3%81%8D%E6%95%B0%E5%A4%9A%E3%82%81%E3%82%B3%E3%82%A4%E3%83%AB-%E3%83%81%E3%83%83%E3%83%97-150V.png" alt="巻き数多めコイル-チップ-150V.png"></p>
+<h5 id="キャパシタ電圧-200V-1"><a href="#キャパシタ電圧-200V-1" class="headerlink" title="キャパシタ電圧:200V"></a>キャパシタ電圧:200V</h5><p><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/%E5%B7%BB%E3%81%8D%E6%95%B0%E5%A4%9A%E3%82%81%E3%82%B3%E3%82%A4%E3%83%AB-%E3%83%81%E3%83%83%E3%83%97-200V.png" alt="巻き数多めコイル-チップ-200V.png"></p>
+<h4 id="損失計算"><a href="#損失計算" class="headerlink" title="損失計算"></a>損失計算</h4><p>ストレート側，200V条件の波形データからスイッチング時における各部の損失を計算した。</p>
+<p>計算結果は以下の通り。</p>
+<table>
+<thead>
+<tr>
+<th>部品</th>
+<th>損失 [J]</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IGBT C-E間&emsp;</td>
+<td>0.27</td>
+</tr>
+<tr>
+<td>コイル</td>
+<td>38.38</td>
+</tr>
+<tr>
+<td>上記合計</td>
+<td>38.65</td>
+</tr>
+</tbody></table>
+<p>キャパシタに蓄えられるエネルギーは，</p>
+<mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -1.552ex;" xmlns="http://www.w3.org/2000/svg" width="48.441ex" height="4.588ex" role="img" focusable="false" viewBox="0 -1342 21411 2028" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="MJX-1-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path id="MJX-1-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-1-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-1-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-1-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path id="MJX-1-TEX-I-1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path><path id="MJX-1-TEX-N-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path id="MJX-1-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-1-TEX-N-A0" d=""></path><path id="MJX-1-TEX-N-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path id="MJX-1-TEX-I-1D707" d="M58 -216Q44 -216 34 -208T23 -186Q23 -176 96 116T173 414Q186 442 219 442Q231 441 239 435T249 423T251 413Q251 401 220 279T187 142Q185 131 185 107V99Q185 26 252 26Q261 26 270 27T287 31T302 38T315 45T327 55T338 65T348 77T356 88T365 100L372 110L408 253Q444 395 448 404Q461 431 491 431Q504 431 512 424T523 412T525 402L449 84Q448 79 448 68Q448 43 455 35T476 26Q485 27 496 35Q517 55 537 131Q543 151 547 152Q549 153 557 153H561Q580 153 580 144Q580 138 575 117T555 63T523 13Q510 0 491 -8Q483 -10 467 -10Q446 -10 429 -4T402 11T385 29T376 44T374 51L368 45Q362 39 350 30T324 12T288 -4T246 -11Q199 -11 153 12L129 -85Q108 -167 104 -180T92 -202Q76 -216 58 -216Z"></path><path id="MJX-1-TEX-N-46" d="M128 619Q121 626 117 628T101 631T58 634H25V680H582V676Q584 670 596 560T610 444V440H570V444Q563 493 561 501Q555 538 543 563T516 601T477 622T431 631T374 633H334H286Q252 633 244 631T233 621Q232 619 232 490V363H284Q287 363 303 363T327 364T349 367T372 373T389 385Q407 403 410 459V480H450V200H410V221Q407 276 389 296Q381 303 371 307T348 313T327 316T303 317T284 317H232V189L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path><path id="MJX-1-TEX-N-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path><path id="MJX-1-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-1-TEX-I-1D43D" d="M447 625Q447 637 354 637H329Q323 642 323 645T325 664Q329 677 335 683H352Q393 681 498 681Q541 681 568 681T605 682T619 682Q633 682 633 672Q633 670 630 658Q626 642 623 640T604 637Q552 637 545 623Q541 610 483 376Q420 128 419 127Q397 64 333 21T195 -22Q137 -22 97 8T57 88Q57 130 80 152T132 174Q177 174 182 130Q182 98 164 80T123 56Q115 54 115 53T122 44Q148 15 197 15Q235 15 271 47T324 130Q328 142 387 380T447 625Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D44A" xlink:href="#MJX-1-TEX-I-1D44A"></use></g><g data-mml-node="mo" transform="translate(1325.8,0)"><use data-c="3D" xlink:href="#MJX-1-TEX-N-3D"></use></g><g data-mml-node="mstyle" transform="translate(2381.6,0)"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(220,676)"><use data-c="31" xlink:href="#MJX-1-TEX-N-31"></use></g><g data-mml-node="mn" transform="translate(220,-686)"><use data-c="32" xlink:href="#MJX-1-TEX-N-32"></use></g><rect width="700" height="60" x="120" y="220"></rect></g><g data-mml-node="mi" transform="translate(940,0)"><use data-c="1D436" xlink:href="#MJX-1-TEX-I-1D436"></use></g><g data-mml-node="msup" transform="translate(1700,0)"><g data-mml-node="mi"><use data-c="1D449" xlink:href="#MJX-1-TEX-I-1D449"></use></g><g data-mml-node="mn" transform="translate(861.3,413) scale(0.707)"><use data-c="32" xlink:href="#MJX-1-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(3242.6,0)"><use data-c="3D" xlink:href="#MJX-1-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(4298.4,0)"><g data-mml-node="mn" transform="translate(220,676)"><use data-c="31" xlink:href="#MJX-1-TEX-N-31"></use></g><g data-mml-node="mn" transform="translate(220,-686)"><use data-c="32" xlink:href="#MJX-1-TEX-N-32"></use></g><rect width="700" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(5460.6,0)"><use data-c="D7" xlink:href="#MJX-1-TEX-N-D7"></use></g><g data-mml-node="mn" transform="translate(6460.9,0)"><use data-c="32" xlink:href="#MJX-1-TEX-N-32"></use><use data-c="32" xlink:href="#MJX-1-TEX-N-32" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-1-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-1-TEX-N-30" transform="translate(1500,0)"></use></g><g data-mml-node="mtext" transform="translate(8460.9,0)"><use data-c="A0" xlink:href="#MJX-1-TEX-N-A0"></use></g><g data-mml-node="mo" transform="translate(8710.9,0)"><use data-c="5B" xlink:href="#MJX-1-TEX-N-5B"></use></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(8988.9,0)"><g data-mml-node="mi"><use data-c="1D707" xlink:href="#MJX-1-TEX-I-1D707"></use></g><g data-mml-node="mi" transform="translate(603,0)"><use data-c="46" xlink:href="#MJX-1-TEX-N-46"></use></g></g><g data-mml-node="mo" transform="translate(10244.9,0)"><use data-c="5D" xlink:href="#MJX-1-TEX-N-5D"></use></g><g data-mml-node="mo" transform="translate(10745.1,0)"><use data-c="D7" xlink:href="#MJX-1-TEX-N-D7"></use></g><g data-mml-node="mn" transform="translate(11745.3,0)"><use data-c="32" xlink:href="#MJX-1-TEX-N-32"></use><use data-c="30" xlink:href="#MJX-1-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-1-TEX-N-30" transform="translate(1000,0)"></use></g><g data-mml-node="mtext" transform="translate(13245.3,0)"><use data-c="A0" xlink:href="#MJX-1-TEX-N-A0"></use></g><g data-mml-node="mo" transform="translate(13495.3,0)"><use data-c="5B" xlink:href="#MJX-1-TEX-N-5B"></use></g><g data-mml-node="mi" transform="translate(13773.3,0)"><use data-c="1D449" xlink:href="#MJX-1-TEX-I-1D449"></use></g><g data-mml-node="msup" transform="translate(14542.3,0)"><g data-mml-node="mo"><use data-c="5D" xlink:href="#MJX-1-TEX-N-5D"></use></g><g data-mml-node="mn" transform="translate(311,413) scale(0.707)"><use data-c="32" xlink:href="#MJX-1-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(15534.6,0)"><use data-c="3D" xlink:href="#MJX-1-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(16590.4,0)"><use data-c="34" xlink:href="#MJX-1-TEX-N-34"></use><use data-c="34" xlink:href="#MJX-1-TEX-N-34" transform="translate(500,0)"></use></g><g data-mml-node="mtext" transform="translate(17590.4,0)"><use data-c="A0" xlink:href="#MJX-1-TEX-N-A0"></use></g><g data-mml-node="mo" transform="translate(17840.4,0)"><use data-c="5B" xlink:href="#MJX-1-TEX-N-5B"></use></g><g data-mml-node="mi" transform="translate(18118.4,0)"><use data-c="1D43D" xlink:href="#MJX-1-TEX-I-1D43D"></use></g><g data-mml-node="mo" transform="translate(18751.4,0)"><use data-c="5D" xlink:href="#MJX-1-TEX-N-5D"></use></g></g></g></g></svg></mjx-container>
+
+<p>となり，キャパシタの容量抜けを考慮すると妥当。</p>
+<p>参考：スイッチング時のコイルとIGBTの損失（縦軸:損失[W],横軸:時間[s]）<br><img src="/pic/post/2025-06-28-Kicker-v3.2-ChargeTest/loss.png" alt="image.png"></p>
+
+      
+    </div>
+    <br>
+    <br>
+    <a href="https://greentea-ssl.com/2025/06/28/2025-06-28-Kicker-v3.2-ChargeTest/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
       
 	<div class="row">
   <div class="col-md-4 col-sm-4">
