@@ -89,7 +89,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({"conversion":{"display":true,"format":"TeX"},"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]],"packages":["base","ams","newcommand","noundefined","require","autoload","configmacros"]}});
+      MathJax.Hub.Config({"conversion":{"display":true},"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]}});
     </script>
   
   <!-- MathJax END -->
@@ -172,6 +172,58 @@
 
   <section class="archives-wrap">
     <div class="archives">
+      
+	<div class="row">
+  <div class="col-md-4 col-sm-4">
+    
+      <img src="/pic/post/2025-07-06-RadioDelayReport2/thumb.jpg" class="img-responsive">
+    
+  </div>
+  
+    <div class="col-md-8 col-sm-8">
+  
+    
+    <h2 itemprop="name">
+      <a class="archive-article-title" href="/2025/07/06/2025-07-06-RadioDelayReport2/">230909_TL-WR902AC無線通信遅延計測実験</a>
+    </h2>
+
+
+    <ul class="blog-info">
+      <li>
+      	<i class="fa fa-calendar"></i> 
+        <time datetime="2025-07-06T07:00:00.000Z" itemprop="datePublished">2025/07/06</time>
+
+      </li>
+      <li>
+	<i class="fa fa-tags"></i>
+	
+  
+    <a href="/tags/Report/" title="Report">Report</a>
+  
+
+
+      </li>
+    </ul>
+    <div class="blog-item">
+      
+	<p>この記事は2023年9月9日にチーム内Wikiに書かれたレポートを転記したものです．<br><a href="https://greentea-ssl.com/2025/06/21/2025-06-21-RadioDelayReport/">230617_無線通信遅延計測実験</a>の続き    </p>
+<h1 id="230909-TL-WR902AC無線通信遅延計測実験"><a href="#230909-TL-WR902AC無線通信遅延計測実験" class="headerlink" title="230909_TL-WR902AC無線通信遅延計測実験"></a>230909_TL-WR902AC無線通信遅延計測実験</h1><p>TL-WR902ACとTP-LINK Archer C5400を用いてBroadcastで遅延時間を計測する実験を行った  </p>
+<h3 id="評価方法"><a href="#評価方法" class="headerlink" title="評価方法"></a>評価方法</h3><p>WiFiルーターと有線LANで接続したPCから，WiFiで接続されているTL-WR902ACに対してbroadcastでパケットを送信する．TL-WR902ACからESP32-PoE-ISOにEthernetで接続し，USB-Serialに出力されるまでの時間を計測した．パケットの送信間隔は10msに設定した．</p>
+<h4 id="評価システム図"><a href="#評価システム図" class="headerlink" title="評価システム図"></a>評価システム図</h4><p><img src="/pic/post/2025-07-06-RadioDelayReport2/thumb.jpg" alt="thumb.jpg"></p>
+<h4 id="測定方法"><a href="#測定方法" class="headerlink" title="測定方法"></a>測定方法</h4><h5 id="Broadcast"><a href="#Broadcast" class="headerlink" title="Broadcast"></a>Broadcast</h5><p>遅延測定ツールのパケット宛先を192.168.4.255にして測定</p>
+<h3 id="試験結果"><a href="#試験結果" class="headerlink" title="試験結果"></a>試験結果</h3><h4 id="Broadcast-1"><a href="#Broadcast-1" class="headerlink" title="Broadcast"></a>Broadcast</h4><p>およそ5-15msの遅延</p>
+<h4 id="測定結果"><a href="#測定結果" class="headerlink" title="測定結果"></a>測定結果</h4><h5 id="Broadcast-2"><a href="#Broadcast-2" class="headerlink" title="Broadcast"></a>Broadcast</h5><p><img src="/pic/post/2025-07-06-RadioDelayReport2/broadcast.png" alt="broadcast.png"></p>
+<h4 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h4><p>WioTerminalのBroadcastの遅延が大きいのはWioTerminalのライブラリが悪い</p>
+
+      
+    </div>
+    <br>
+    <br>
+    <a href="https://greentea-ssl.com/2025/07/06/2025-07-06-RadioDelayReport2/" class="more">Read more <i class="icon-angle-right"></i></a>
+  </div>
+</div>
+<hr class="blog-post-sep">
+
       
 	<div class="row">
   <div class="col-md-4 col-sm-4">
@@ -497,6 +549,7 @@
 <h4 id="Unicast-1"><a href="#Unicast-1" class="headerlink" title="Unicast"></a>Unicast</h4><p>およそ5-10msの遅延</p>
 <h4 id="測定結果"><a href="#測定結果" class="headerlink" title="測定結果"></a>測定結果</h4><h5 id="Broadcast-2"><a href="#Broadcast-2" class="headerlink" title="Broadcast"></a>Broadcast</h5><p><img src="/pic/post/2025-06-21-RadioDelayReport/broadcast.png" alt="broadcast.png"></p>
 <h5 id="Unicast-2"><a href="#Unicast-2" class="headerlink" title="Unicast"></a>Unicast</h5><p><img src="/pic/post/2025-06-21-RadioDelayReport/unicast.png" alt="unicast.png"></p>
+<p><a href="https://greentea-ssl.com/2025/07/06/2025-07-06-RadioDelayReport2/">230909_TL-WR902AC無線通信遅延計測実験</a>に続く </p>
 
       
     </div>
